@@ -12,9 +12,11 @@ class Router extends Component {
     
     public function route()
     {
-        $wayArray = explode('/', $_GET["r"], 3);
-        $wayArray[0]=($wayArray[0]==null)?'default':$wayArray[0]; //controller
-       echo $wayArray[1]; //method
+       if (array_key_exists('r', $_GET))
+        {
+        $wayArray    = explode('/', $_GET["r"], 3);
+        $wayArray[0] = ($wayArray[0] == null) ? 'default' : $wayArray[0]; //controller
+        echo $wayArray[1]; //method
         try {
             $controllerClassName = 'controllers/' . $wayArray[0] . 'Controller' . '.php';
             if (!class_exists($controllerClassName)) {
@@ -22,18 +24,21 @@ class Router extends Component {
             }
 
             $routeName   = $wayArray[1];
-            $routeParams = (!array_key_exists(2,$wayArray))?'':$wayArray[2];
-            if (!method_exists($controllerClassName, $routeName)) {
+            $routeParams = (!array_key_exists(2, $wayArray)) ? '' : $wayArray[2];
+            if (method_exists($controllerClassName, $routeName)) {
+                return call_user_func(array($controllerClassName, $routeName), $routeParams);
+            } else {
                 throw new RoutingException("No Way in '" . get_class($controllerClassName) . "/{$routeName}'!");
             }
 
-        }catch(RoutingException $ex){
+        } catch (RoutingException $ex) {
             echo $ex->getMessage();
-            $controllerClassName='DefaultController';
-            $routeName='contact';
-            $routeParams='';
+            /* Redirect browser */
+            #header("Location: http://localhost:63342/Task1/index.php");
+            header("Location: http://". $_SERVER["HTTP_HOST"]."/Task1/index.php");
+            exit();
         }
-        return call_user_func(array($controllerClassName, $routeName), $routeParams);
+    }
 
     }
     
