@@ -23,7 +23,7 @@ class Router extends Component {
                 $controllerClassName = Autoloader::getInstance()->addClassPath($controllerClassName);
             }
 
-            $routeName   = $wayArray[1];
+            $routeName   = 'action'.$wayArray[1];
             $routeParams = (!array_key_exists(2, $wayArray)) ? '' : $wayArray[2];
             if (method_exists($controllerClassName, $routeName)) {
                 return call_user_func(array($controllerClassName, $routeName), $routeParams);
@@ -32,11 +32,12 @@ class Router extends Component {
             }
 
         } catch (RoutingException $ex) {
-            echo $ex->getMessage();
+            echo $ex->getMessage().' Redirect to Home';
+            return call_user_func(array('DefaultController', 'actionindex'), '');
             /* Redirect browser */
-            #header("Location: http://localhost:63342/Task1/index.php");
-            header("Location: http://". $_SERVER["HTTP_HOST"]."/Task1/index.php");
-            exit();
+            ##header("Location: http://localhost:63342/Task1/index.php");
+            #header("Location: http://". $_SERVER["HTTP_HOST"]."/Task1/index.php");
+           # exit();
         }
     }
 
