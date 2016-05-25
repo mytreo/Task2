@@ -16,4 +16,4 @@ $autoloader->addClassPath('core/Application.php');
 $config      = array();
 $application = new Application($config);
 $application->run();
-$application->router->route();
+

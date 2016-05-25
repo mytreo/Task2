@@ -16,7 +16,7 @@ class Router extends Component {
         {
         $wayArray    = explode('/', $_GET["r"], 3);
         $wayArray[0] = ($wayArray[0] == null) ? 'default' : $wayArray[0]; //controller
-        echo $wayArray[1]; //method
+        $wayArray[1]; //method
         try {
             $controllerClassName = 'controllers/' . $wayArray[0] . 'Controller' . '.php';
             if (!class_exists($controllerClassName)) {
@@ -28,12 +28,13 @@ class Router extends Component {
             if (method_exists($controllerClassName, $routeName)) {
                 return call_user_func(array($controllerClassName, $routeName), $routeParams);
             } else {
-                throw new RoutingException("No Way in '" . get_class($controllerClassName) . "/{$routeName}'!");
+                #throw new RoutingException("No Way in '" . get_class($controllerClassName) . "/{$routeName}'!");
+                return call_user_func(array('DefaultController', 'actionindex'), '');
             }
 
         } catch (RoutingException $ex) {
             echo $ex->getMessage().' Redirect to Home';
-            return call_user_func(array('DefaultController', 'actionindex'), '');
+           # return call_user_func(array('DefaultController', 'actionindex'), '');
             /* Redirect browser */
             ##header("Location: http://localhost:63342/Task1/index.php");
             #header("Location: http://". $_SERVER["HTTP_HOST"]."/Task1/index.php");
