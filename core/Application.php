@@ -47,10 +47,10 @@ class Application extends Component{
 		);
 		$this->setComponents($defaultComponents);
 
-		#$preloadComponentNames = array(
-		#	'session'
-		#);
-		#$this->setPreloadComponentNames($preloadComponentNames);
+		$preloadComponentNames = array(
+			'urlManager'
+		);
+		$this->setPreloadComponentNames($preloadComponentNames);
 		
 		
 		$this->applyConfig($config);
