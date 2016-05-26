@@ -2,7 +2,7 @@
 require_once('controllers/BaseControllerFunctional.php');
 class InfoController extends BaseControllerFunctional
 {
-	const CALLBACK_ON = array('actions'=>array('actionCompany'),'filters'=>array('ControllerFilter::check()'));
+	const CALLBACK_ON = array('actions'=>array('actionCompany'),'filters'=>array('controllerFilter'));
 
 	public static function actionCompany($params = null)
 	{

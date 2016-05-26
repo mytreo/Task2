@@ -2,7 +2,6 @@
 require_once('controllers/BaseControllerFunctional.php');
 class DefaultController extends BaseControllerFunctional
 {
-
 	public static function actionIndex($params = null)
 	{
 		$config = array(
