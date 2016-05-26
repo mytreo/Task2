@@ -1,7 +1,7 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: mytreo
- * Date: 025 25.05.16
- * Time: 13:21
- */
+class ControllerFilter{
+	public function check(){
+		$someValue='some';
+		return (!is_null($_GET['checkValue']))? $_GET['checkValue']== $someValue: false ;
+	}
+}

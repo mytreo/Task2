@@ -1,5 +1,15 @@
 <?php
 class BaseControllerFunctional extends Component{
+	public function __call($name, $arguments) {
+		if (method_exists(get_Class($this), 'action'.$name)) {
+			call_user_func(array($this, 'action' . $name), $arguments);
+		}else{
+			header("Location: ".Application::getInstance()->urlManager->getAddress());
+			exit();
+		}
+	}
+
+
 	public function render($config){
 		require_once('core/View.php');
 		$view = new View();
