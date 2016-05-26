@@ -1,8 +1,15 @@
 <?php
 class BaseControllerFunctional extends Component{
+	const CALLBACK_ON=array('actions'=>array(),'callbacks'=>array());
 	public function __call($name, $arguments) {
+
 		if (method_exists(get_Class($this), 'action'.$name)) {
+			if(in_array('action'.$name,($this::CALLBACK_ON['actions']))
+			   and !eval('return '.$this::CALLBACK_ON['callbacks'][0].';') ) {
+				echo "do Nothing";
+			} else{
 			call_user_func(array($this, 'action' . $name), $arguments);
+			}
 		}else{
 			header("Location: ".Application::getInstance()->urlManager->getAddress());
 			exit();
