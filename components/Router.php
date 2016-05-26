@@ -1,15 +1,8 @@
 <?php
-class RoutingException extends Exception{
-
-}
 
 class Router extends Component {
     protected $_defaultControllerName = 'index';
 
-    public function __construct() {
-        echo 'Instance of "'.get_class($this).'" has been created!<br />';
-    }
-    
     public function route()
     {
        if (array_key_exists('r', $_GET))
@@ -20,7 +13,7 @@ class Router extends Component {
         $routeParams = (!array_key_exists(2, $wayArray)) ? '' : $wayArray[2];
         return $this->go($wayArray[0],$wayArray[1],$routeParams);
       }
-        $this->go('default', 'index','');
+        return $this->go('default', 'index','');
     }
 
     public function go($controllerName, $controllerAction, $controllerActionParams){

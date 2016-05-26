@@ -138,7 +138,7 @@ class Application extends Component{
 
 	// Running the application:
 	public function run() {
-		echo('Application is running...<br />');
+		#echo('Application is running...<br />');
 		$this->router->route();
 	}
 
