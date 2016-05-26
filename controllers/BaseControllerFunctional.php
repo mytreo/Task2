@@ -3,6 +3,17 @@
 class BaseControllerFunctional extends Component
 {
 	const CALLBACK_ON = array('actions' => array(), 'filters' => array());
+	protected $callbacks = array();
+
+	public function addCallback($action, $callback)
+	{
+		$this->callbacks[$action] = $callback;
+	}
+
+	public function getCallback($action)
+	{
+		return array_key_exists($action, $this->callbacks) ? $this->callbacks[$action] : true;
+	}
 
 	public function __call($name, $arguments)
 	{
@@ -10,12 +21,16 @@ class BaseControllerFunctional extends Component
 		if (method_exists(get_Class($this), 'action' . $name)) {
 
 			if (in_array('action' . ucfirst($name), ($this::CALLBACK_ON['actions']))
-				and !eval('return Application::getInstance()->' . $this::CALLBACK_ON['filters'][0] . '->check();')
+				?
+				eval('return Application::getInstance()->' . $this::CALLBACK_ON['filters'][0] . '->check();')
+				: true
+				and $this->getCallback('action' . ucfirst($name))
 			) {
-				echo "Filter no Passed";
-			} else {
 				call_user_func(array($this, 'action' . $name), $arguments);
+			} else {
+				echo "Filter no Passed";
 			}
+
 		} else {
 			header("Location: " . Application::getInstance()->urlManager->getAddress());
 			exit();

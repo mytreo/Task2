@@ -4,9 +4,8 @@ $autoloader = Autoloader::getInstance();
 $autoloader->addClassPath('core/Component.php');
 $autoloader->addClassPath('core/Application.php');
 
-
 $config      = array(
-	'components' => array(
+	'components'            => array(
 		'controllerFilter' => array(
 			'class' => 'components/Session.php',
 			'name'  => 'SomeSessionName'
