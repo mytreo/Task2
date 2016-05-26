@@ -1,17 +1,44 @@
 <?php
-class HelpController
+require_once('controllers/BaseControllerFunctional.php');
+class HelpController extends BaseControllerFunctional
 {
 	public static function actionAbout($params = null)
 	{
-		echo "<br>";
-		echo "routed to -> help/about <br>";
-		echo 'params in controller method=' . $params;
+		$config = array(
+			'footer'  => array(
+				'data' => array(
+					'copyright' => 'mytreo',
+					'route'     => 'help/about',
+				)
+			),
+			'head'    => array(
+				'data' => array(
+					'header' => 'справка/о программе')
+			),
+			'content' => array(
+				'name' => 'contAbout',
+			)
+		);
+		self::render($config);
 	}
 
 	public static function actionManual($params = null)
 	{
-		echo "<br>";
-		echo "routed to -> help/manual <br>";
-		echo 'params in controller method=' . $params;
+		$config = array(
+			'footer'  => array(
+				'data' => array(
+					'copyright' => 'mytreo',
+					'route'     => 'help/manual',
+				)
+			),
+			'head'    => array(
+				'data' => array(
+					'header' => 'справка/инструкция')
+			),
+			'content' => array(
+				'name' => 'contManual',
+			)
+		);
+		self::render($config);
 	}
 }
