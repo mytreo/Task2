@@ -7,9 +7,9 @@ class InfoController extends BaseControllerFunctional
 
 	function __construct()
 	{
-		require_once('components/ControllerFilter.php');
-		$this->addCallback('actionCompany', ControllerFilter::check());
-		$this->addCallback('actionTerms', ControllerFilter::check());
+		$filter = Application::getInstance()->controllerFilter;
+		$this->addCallback('actionCompany', $filter::check());
+		$this->addCallback('actionTerms', $filter::check());
     }
 
 
