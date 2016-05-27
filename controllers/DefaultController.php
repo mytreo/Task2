@@ -16,7 +16,7 @@ class DefaultController extends BaseControllerFunctional
 					'header' => 'домашняя страница')
 			),
 			'content' => array(
-				'name' => 'contMain',
+				'data' => '<p>Main Content</p>'
 			)
 		);
 		self::render($config);
@@ -36,7 +36,7 @@ class DefaultController extends BaseControllerFunctional
 					'header' => 'test Contact')
 			),
 			'content' => array(
-				'name' => 'contMain',
+				'data' => '<p>contact Content</p>'
 			)
 		);
 		self::render($config);

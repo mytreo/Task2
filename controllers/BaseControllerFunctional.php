@@ -63,7 +63,7 @@ class BaseControllerFunctional extends Component
 				'data' => null
 			),
 			'content' => array(
-				'name' => 'contMain',
+				'name' => 'content',
 				'data' => null
 			)
 		);

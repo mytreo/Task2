@@ -7,14 +7,19 @@ $autoloader->addClassPath('core/Application.php');
 $config      = array(
 	'components'            => array(
 		'controllerFilter' => array(
-			'class' => 'components/Session.php',
-			'name'  => 'SomeSessionName'
+			'class' => 'components/ControllerFilter.php',
+		),
+		'db' => array(
+			'class' => 'components/Database.php',
+			'dataSourceName'  => 'mysql:host=localhost;dbname=task2db',
+			'user'  => 'root',
+			'password'  => 'root',
 		),
 	),
 	'preloadComponentNames' => array(
 		'controllerFilter'
 	),
 );
-$config      = array();
+
 $application = new Application($config);
 $application->run();

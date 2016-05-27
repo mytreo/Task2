@@ -27,7 +27,7 @@ class InfoController extends BaseControllerFunctional
 					'header' => 'информация/о компании')
 			),
 			'content' => array(
-				'name' => 'contCompany',
+				'data' => '<p>company Content</p>'
 			)
 		);
 		self::render($config);
@@ -47,7 +47,7 @@ class InfoController extends BaseControllerFunctional
 					'header' => 'информация/условия использования')
 			),
 			'content' => array(
-				'name' => 'contTerms',
+				'data' => '<p>terms Content</p>'
 			)
 		);
 		self::render($config);

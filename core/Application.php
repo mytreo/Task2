@@ -41,9 +41,6 @@ class Application extends Component{
 				'class' => 'components/Session.php',
 				'name' => 'SomeSessionName'
 			),
-			'controllerFilter' => array(
-				'class' => 'components/ControllerFilter.php'
-			),
 		);
 		$this->setComponents($defaultComponents);
 

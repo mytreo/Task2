@@ -22,7 +22,12 @@ class Component {
     public function __call($methodName,$parameters) {
         throw new Exception("Missing method '".get_class($this).'::'."{$methodName}'!");
     }
-        
+
+    public function __construct($componentConfig=array())
+    {
+        $this->applyConfig($componentConfig);
+    }
+
     // Config: 
     public function applyConfig(array $config) {
         foreach($config as $name=>$value) {

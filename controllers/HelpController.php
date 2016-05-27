@@ -16,7 +16,7 @@ class HelpController extends BaseControllerFunctional
 					'header' => 'справка/о программе')
 			),
 			'content' => array(
-				'name' => 'contAbout',
+				'data' => '<p>about Content</p>'
 			)
 		);
 		self::render($config);
@@ -36,7 +36,7 @@ class HelpController extends BaseControllerFunctional
 					'header' => 'справка/инструкция')
 			),
 			'content' => array(
-				'name' => 'contManual',
+				'data' => '<p>manual Content</p>'
 			)
 		);
 		self::render($config);
