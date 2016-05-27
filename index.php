@@ -26,15 +26,3 @@ $config      = array(
 
 $application = new Application($config);
 $application->run();
-require_once('active_record/Item.php');/*
-var_dump((new Item())->findByPk(5));
-var_dump((new Item())->findByName('item_1_name'));*/
-
-$i = new Item();
-$i->id=788;
-$i->name='fdfdfdf';
-$i->category_id=2;
-$i->save();
-
-
-

@@ -6,4 +6,5 @@
 	<li><a href=<?php echo Application::getInstance()->urlManager->getAddress('info/company').'&checkValue=some'; ?>>I2</a></li>
 	<li><a href=<?php echo Application::getInstance()->urlManager->getAddress('info/terms');  ?>>«информация/условия использования»</a></li>
 	<li><a href=<?php echo Application::getInstance()->urlManager->getAddress('items/ShowItems'); ?>>«Товары»</a></li>
+	<li><a href=<?php echo Application::getInstance()->urlManager->getAddress('query/list'); ?>>«Запросы»</a></li>
 </ul>
