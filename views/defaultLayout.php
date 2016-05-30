@@ -4,7 +4,10 @@
     <title>View</title>
     <link rel="stylesheet" type="text/css" href="views/defaultStyle.css">
     <link rel="stylesheet" href="views/modal.css">
-    <script type="text/javascript" src="js/jquery.js"></script>
+   <!-- <script type="text/javascript" src="js/jquery.js"></script>-->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 </head>
 <body>
 <?php echo $header; ?>

@@ -29,6 +29,16 @@ class ItemsController extends BaseControllerFunctional
 	        }
         </script>
 		';
+		$str = $str.' <script>
+						  $(function() {
+						    $( "#accordion" ).accordion();
+						  });
+                    </script><div id=accordion>';
+		foreach($items as $item) {
+			$str = $str . "<h3>{$item->name}</h3> <div>{$item->description}</div>";
+		}
+		$str = $str.'</div>';
+
 
 		$config = array(
 			'footer'  => array(
