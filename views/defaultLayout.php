@@ -4,6 +4,7 @@
     <title>View</title>
     <link rel="stylesheet" type="text/css" href="views/defaultStyle.css">
     <link rel="stylesheet" href="views/modal.css">
+    <script type="text/javascript" src="js/jquery.js"></script>
 </head>
 <body>
 <?php echo $header; ?>
