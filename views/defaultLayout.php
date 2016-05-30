@@ -3,6 +3,7 @@
 <head>
     <title>View</title>
     <link rel="stylesheet" type="text/css" href="views/defaultStyle.css">
+    <link rel="stylesheet" href="views/modal.css">
 </head>
 <body>
 <?php echo $header; ?>
