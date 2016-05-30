@@ -18,8 +18,9 @@ class ItemsController extends BaseControllerFunctional
 		$str=$str.'</table>
 		 <script type="text/javascript">
 	        function showDiv(divId) {
-	            var div = document.getElementById(divId);
-	            div.style.display = \'block\';
+	           // var div = document.getElementById(divId);
+	           // div.style.display = \'block\';
+	            $(\'#\'+divId).css({display:\'block\'});
 	        }
 	
 	        function hideDiv(divId) {
