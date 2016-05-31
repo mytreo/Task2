@@ -284,11 +284,30 @@ class DefaultController extends BaseControllerFunctional
 				});
                </script>
                <div id=\"dialog\" title=\"Basic dialog\">
-				  <p>This is the default dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the 'x' icon.</p>
-				</div>
+				  <p id='dialog-cont'>This is the default dialog which is useful for displaying information. The dialog 
+				  window can be
+				   moved, resized and closed with the 'x' icon.</p>
+			   </div>
+			<input id='opener' class='btn' value='Open JQuery dialog'>	
               <script>
 			  $(function() {
-			    $( \"#dialog\" ).dialog();
+			    $( \"#dialog\" ).dialog({
+			      autoOpen: false,
+			      show: {
+			        effect: \"blind\",
+			        duration: 1000
+			      },
+			      hide: {
+			        effect: \"explode\",
+			        duration: 1000
+			      },
+			      title: \"Dialog Title\"
+			    });
+			 
+			    $( \"#opener\" ).click(function() {
+			      $( \"#dialog-cont\" ).html( 'some other text');
+			      $( \"#dialog\" ).dialog( \"open\" );
+			    });
 			  });
 			  </script>
                
